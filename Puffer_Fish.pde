@@ -1,6 +1,7 @@
 // Alex Lacroix
 
 int bg1, bg2, bg3, bg4, bg5, bg6, b1, b2, b3, b4;
+int fish, rock, mounds;
 
 void setup() {
   size(900, 600);
@@ -14,15 +15,28 @@ void setup() {
   b2 = 300;
   b3 = 500;
   b4 = 350;
+  fish = 450;
+  rock = 100;
+  mounds = 250;
   
 }
 
 void draw() {
   //Sea
-  background(43, 162, 203);
+  background(43, 162, 203);  
   
-  //roaming fish
-  
+  //Distant Mounds
+  fill(47, 128, 155);
+  stroke(47, 128, 155);
+  ellipse(mounds, 300, 200, 400);
+  ellipse(mounds+400, 300, 300, 500);
+  ellipse(mounds+550, 300, 200, 300);
+  ellipse(mounds+430, 300, 200, 300);
+  ellipse(mounds-150, 300, 350, 300);
+  mounds = mounds + 1;
+  if( mounds > 1100) {
+  mounds = -200;
+  }
   
   //bubbles
   fill(166, 246, 252);
@@ -105,5 +119,33 @@ void draw() {
   stroke(227, 218, 167);
   fill(227, 218, 167);
   rect(0, 400, 900, 200);
- 
+  
+  //roaming fish
+  fill(227, 195, 78);
+  stroke(227, 195, 78);
+  ellipse(fish, 150, 100, 100);
+  fill(225);
+  stroke(225);
+  ellipse(fish-30, 140, 20, 20);
+  fill(0);
+  stroke(0);
+  ellipse(fish-33, 140, 8, 8);
+  fill(250, 212, 240);
+  stroke(250, 212, 240);
+  ellipse(fish-39, 160, 5, 5);
+   // roaming fish movement
+   fish = fish - 2;
+   if( fish < -400) {
+   fish = 1100;
+   }
+   //rock
+   fill(98, 98, 98);
+   stroke(98, 98, 98);
+   rect(rock, 500, 100, 50, 100, 100, 100, 100);
+   rect(rock+20, 520, 100, 50, 100, 100, 100, 100);
+   rect(rock-10, 520, 100, 50, 50, 50, 50, 500);
+   rock = rock + 2;
+   if( rock > 1100) {
+   rock = -200;
+   }
   }
